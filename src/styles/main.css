@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+
+body {
+    font-family: 'Space Mono', monospace;
+    font-weight: 500;
+}
+
+.QBFather{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f88f01;
+}
+
+.transitionProp {
+    transition: 3s;
+}
+
+.QuoteBox {
+    min-width: 25%;
+    max-width: 55%;
+    min-height:20%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.bttnParent {
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+}
+p {
+    text-align: center;
+}
+
+.textRigth {
+    text-align: right;
+}
+
+.bttn2 {
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: none;
+}
+
+.bttn2:hover {
+    cursor: pointer;
+}
