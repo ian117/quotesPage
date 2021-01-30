@@ -3,16 +3,16 @@ import '../styles/main.css'
 
 
 const QBFather = ({children, color}) => {
-    return (<div className="QBFather transitionProp" style={{backgroundColor: color}}>{children}</div>)
+    return (<div className="QBFather " style={{backgroundColor: color}}>{children}</div>)
 }
 
 const QuoteBox = ({quote,author,color, handler}) => {
-    return (<div className="QuoteBox transitionProp" style={{color: {color}}}>
+    return (<div className="QuoteBox " style={{color: {color}}}>
                 <p>"{quote}"</p>
-                <p className="textRigth transitionProp">-{author}</p>
-                <div className="bttnParent transitionProp">
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="bttn2 transitionProp" style={{backgroundColor: color}}data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-                <span className="bttn2 transitionProp" onClick={handler} style={{backgroundColor: color}}>New Quote</span>
+                <p className="textRigth ">-{author}</p>
+                <div className="bttnParent ">
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="bttn2 " style={{backgroundColor: color}}data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                <span className="bttn2 " onClick={handler} style={{backgroundColor: color}}>New Quote</span>
                 </div> 
             </div>)
 }
@@ -21,7 +21,10 @@ const QuoeteBox = ({data}) => {
     
     const colors = ["#f88f01","#30475e", "#f05454", "#295939", "16c79a", "393e46"]
 
-    const [ colorClass, setColorClass] = useState(colors[Math.floor(Math.random() * colors.length)])
+    const [ colorClass, setColorClass] = useState(() => {
+        colors.sort();
+        return colors[0]
+    })
 
 
     function firstCall (obj) {
@@ -51,7 +54,13 @@ const QuoeteBox = ({data}) => {
 
     const handleNewQuote = (event) => {
         newQuote(data)
-        setColorClass(colors[Math.floor(Math.random() * colors.length)])
+        setColorClass(() => {
+            const thisIsColor  =  colors[Math.floor(Math.random() * colors.length)]
+            if (thisIsColor === colorClass){
+                return "#557174"
+            }
+            return thisIsColor;
+        })
     }
 
 
